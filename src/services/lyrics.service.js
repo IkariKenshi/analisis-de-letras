@@ -4,13 +4,20 @@ class LyricsService {
 //_________________________________________________________Obteción de letras
     async fetchLyrics(artist, song){
         try{
-            const safeArtist = encodeURIComponent(artist);
-            const safeSong = encodeURIComponent(song);
-            const response = await axios.get(`https://api.lyrics.ovh/v1/${safeArtist}/${safeSong}`);
+            /* const safeArtist = encodeURIComponent(artist);
+            const safeSong = encodeURIComponent(song); */
+            const response = await axios.get('https://lrclib.net/api/get', {
+                params: {
+                    artist_name: artist,
+                    track_name: song
+                }
+            });
 
-            //La API devuelve {lyrics: "texto de la canción"}
-            //console.log(response.data);
-            return response.data.lyrics;
+            if(!response.data || !response.data.plainLyrics){
+                return null;
+            }
+
+            return response.data.plainLyrics;
         }
         catch(error){
             //Manejo de error 404 (cancion no encontrada en la API)
