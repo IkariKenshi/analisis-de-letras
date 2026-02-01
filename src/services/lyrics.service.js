@@ -4,8 +4,7 @@ class LyricsService {
 //_________________________________________________________Obteción de letras
     async fetchLyrics(artist, song){
         try{
-            /* const safeArtist = encodeURIComponent(artist);
-            const safeSong = encodeURIComponent(song); */
+            console.log(artist, song);
             const response = await axios.get('https://lrclib.net/api/get', {
                 params: {
                     artist_name: artist,
