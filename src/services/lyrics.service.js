@@ -9,7 +9,8 @@ class LyricsService {
                 params: {
                     artist_name: artist,
                     track_name: song
-                }
+                },
+                timeout: 20000
             });
 
             if(!response.data || !response.data.plainLyrics){
@@ -19,6 +20,12 @@ class LyricsService {
             return response.data.plainLyrics;
         }
         catch(error){
+            if(error.code === 'ECONNABORTED' || error.message?.includes('timeout')){
+                const timeoutError = new Error('El tiempo de espera se agotó. Verifica el nombre del artista y la canción.');
+                timeoutError.statusCode = 408;
+                throw timeoutError;
+            }
+
             //Manejo de error 404 (cancion no encontrada en la API)
             if(error.response && error.response.status === 404){
                 const notFoundError = new Error(`Letra no encontrada de la canción "${song}" del artista "${artist}"`);

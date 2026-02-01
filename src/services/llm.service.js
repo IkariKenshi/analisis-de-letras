@@ -15,11 +15,12 @@ class LLMService {
                     "tema_principal": "Amor, Desamor, Muerte, Crítica social, Crítica política, Religión, Experiencia personal, u Otro",
                     "resumen": "Resumen breve en español",
                     "interpretacion": "Una interpretación del significado de la canción, especialmente en los casos en los que: Existen metáforas, el mensaje no sea literal, El significado requiera un análisis más profundo.",
-                    "genero_voz_narrativa": "Indicar si la canción está cantada desde la perspectiva de:Masculino, Femenino o indeterminado (si no es posible inferirlo claramente)",
-                    "empresas_mencionadas": ["Nombre de empresas","Lista de marcas", "productos"]
+                    "genero_voz_narrativa": "Indicar si la canción está cantada desde la perspectiva de: una persona del género Masculino, una persona del género Femenino o indeterminado (si no es posible inferirlo claramente)",
+                    "genero_voz": El vocalista es hombre o mujer,
+                    "empresas_mencionadas": Una lista (si existe) de Nombre de empresas, marcas, productos comerciales
                 }
                     Letra a analizar:
-                "${lyrics.slice(0, 2500)}"
+                "${lyrics}"
                 `;
 
             const response = await axios.post(`https://apifreellm.com/api/v1/chat`,

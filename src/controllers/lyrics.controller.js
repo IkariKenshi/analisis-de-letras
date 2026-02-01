@@ -16,7 +16,7 @@ class LyricsController {
             if(!lyrics){
                 return res.status(404).json({ error: "Letra no encontrada" });
             }
-            console.log("Letra encontrada:", lyrics.slice(0, 100));
+            /* console.log("Letra encontrada:", lyrics.slice(0, 50)); */
 
 
             //return res.json({ artist, song, lyrics });
