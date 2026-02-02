@@ -1,0 +1,27 @@
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --accent: #8b5cf6;
+    --error: #ef4444;
+}
+
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+/* __________________________________________________________________NavBar */
+navbar{
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border);
+    background: rgba(30, 41, 59, 0.5);
+    margin-bottom: 40px;
+}

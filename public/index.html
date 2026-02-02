@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Letras de Canción</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Análisis de Letras de Canción</h1>
-    <div class="container">
-        <form id="searchForm">
-            <input type="text" id="artist" placeholder="Artista">
-            <input type="text" id="song" placeholder="Canción">
-            <button type="submit" id="searchButton">Buscar</button>
-        </form>
-        <div id="results">
+    <nav class="navbar">
+        <div class="logo">Analizador de Letras</div>
+    </nav>
+    <div class="main-container">
+        <div class="search-section">
+            <h1>Analiza tus canciones preferidas</h1>
+            <form id="searchForm" class="search-box">
+                <input type="text" id="artist" placeholder="Ej: Linkin Park">
+                <input type="text" id="song" placeholder="Ej: Breaking the Habit">
+                <button type="submit" id="searchButton">
+                    <span>Analizar</span>
+                </button>
+            </form>
         </div>
+
+        <div id="statusMessage" class="status-container"></div>
+
+        <div id="resultArea" class="result-grid" style="display: none;">
+            <div class="lyrics-card">
+                <div class="card-header">
+                    <h3>Letra Original</h3>
+                    <span id="songTitleDisplay" class="badge-title"></span>
+                </div>
+                <div class="lyrics-content" id="lyricsContent">
+
+                </div>
+            </div>
+
+
+            <div class="analysis-column">
+                <div class="info-card highlight-card">
+                    <h3>Anlisis de la canción</h3>
+                    <div class="start-row">
+                        <div>
+                            <span class="label">Tema Principal</span>
+                            <div id="themeDisplay" class="value-text big-text">--</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Información detallada</h3>
+                <div class="text-block">
+                    <span class="label">Resumen</span>
+                    <p id="summaryDisplay">--</p>
+                </div>
+                <div class="text-block">
+                    <span class="label">Interpretación</span>
+                    <p id="interpretationDisplay">--</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Detalles adicionales</h3>
+                <div class="text-block">
+                    <span class="label">Genero de la voz narrativa</span>
+                    <p id="voiceDisplay">--</p>
+                </div>
+                <div class="text-block">
+                    <span class="label">Genero de la voz</span>
+                    <p id="genderDisplay">--</p>
+                </div>
+                <div class="text-block">
+                    <span class="label">Menciones de empresas/productos/marcas </span>
+                    <p id="brandsDisplay">--</p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </body>
+
 </html>
 
 <script src="script.js"></script>
