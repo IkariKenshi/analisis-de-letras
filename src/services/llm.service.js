@@ -2,7 +2,7 @@ const axios = require('axios');
 
 class LLMService {
 
-    async analyzeLyrics(lyrics) {
+    async analyzeLyrics(lyrics, artist, song) {
         try {
             //Prompt de prepracion para la IA
             const prompt = `
@@ -16,11 +16,12 @@ class LLMService {
                     "resumen": "Resumen breve en español",
                     "interpretacion": "Una interpretación del significado de la canción, especialmente en los casos en los que: Existen metáforas, el mensaje no sea literal, El significado requiera un análisis más profundo.",
                     "genero_voz_narrativa": "Indicar si la canción está cantada desde la perspectiva de: una persona del género Masculino, una persona del género Femenino o indeterminado (si no es posible inferirlo claramente)",
-                    "genero_voz": El vocalista es hombre o mujer,
+                    "genero_voz": "Usa tu conocimiento general sobre el artista '${artist}' para identificar el género biológico del vocalista principal. Opciones estrictas: 'Masculino', 'Femenino' o 'Mixto' (si cantan ambos ).",
                     "empresas_mencionadas": Una lista (si existe) de Nombre de empresas, marcas, productos comerciales
                 }
-                    Letra a analizar:
-                "${lyrics}"
+                    Letra a analizar: "${lyrics}"
+                    Artista: "${artist}"
+                    Canción: "${song}"
                 `;
 
             const response = await axios.post(`https://apifreellm.com/api/v1/chat`,
@@ -64,7 +65,7 @@ class LLMService {
 
             } catch (error) {
                 console.error("Error al parsear el análisis:", error.message);
-                // Devolvemos un análisis desechable para evitar un error en el frontend si la IA falla
+                // Devolvemos un análisis desechable para evitar un error en el frontend si la IA falla (se integración a futuro para mejorar la calidad del frontend)
                 return {
                     tema_principal: "Error al analizar",
                     resumen: "La IA respondió con formato inválido.",

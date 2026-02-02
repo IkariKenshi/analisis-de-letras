@@ -10,7 +10,7 @@ class LyricsController {
                 return res.status(400).json({ error: "El artista/canción es requerido" })
             }
 
-            //Paso 1: Consultamos la letra para posteriormente enviarla a la IA
+//_________Paso 1: Consultamos la letra para posteriormente enviarla a la IA
             console.log("Consultando la letra de la canción...")
             const lyrics = await lyricsService.fetchLyrics(artist, song);
             if(!lyrics){
@@ -18,13 +18,9 @@ class LyricsController {
             }
             /* console.log("Letra encontrada:", lyrics.slice(0, 50)); */
 
-
-            //return res.json({ artist, song, lyrics });
-
-
-            //Paso 2: Llamamos a llmService para analizar la letra con IA
+//_________Paso 2: Llamamos a llmService para analizar la letra con IA
             console.log("Analizando la letra de la canción...")
-            const analysis = await llmService.analyzeLyrics(lyrics);
+            const analysis = await llmService.analyzeLyrics(lyrics, artist, song);
             if(!analysis){
                 return res.status(500).json({ error: "Error al analizar la letra de la canción" });
             }

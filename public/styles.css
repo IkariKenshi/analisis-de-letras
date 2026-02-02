@@ -194,3 +194,10 @@ h3{
         flex-direction: column;
     }
 }
+
+button:disabled {
+    background-color: #64748b; 
+    cursor: not-allowed;       
+    opacity: 0.7;
+    transform: none;         
+}
