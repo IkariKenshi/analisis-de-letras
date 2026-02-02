@@ -16,8 +16,8 @@
         <div class="search-section">
             <h1>Analiza tus canciones preferidas</h1>
             <form id="searchForm" class="search-box">
-                <input type="text" id="artist" placeholder="Ej: Linkin Park">
-                <input type="text" id="song" placeholder="Ej: Breaking the Habit">
+                <input type="text" id="artist" placeholder="Ej: Linkin Park" autocomplete="off">
+                <input type="text" id="song" placeholder="Ej: Breaking the Habit" autocomplete="off">
                 <button type="submit" id="searchButton">
                     <span>Analizar</span>
                 </button>
@@ -26,10 +26,10 @@
 
         <div id="statusMessage" class="status-container"></div>
 
-        <div id="resultArea" class="result-grid" ">
+        <div id="resultArea" class="result-grid">
             <div class="lyrics-card">
                 <div class="card-header">
-                    <h3>Letra Original</h3>
+                    <h3>Letras de la canción</h3>
                     <span id="songTitleDisplay" class="badge-title"></span>
                 </div>
                 <div class="lyrics-content" id="lyricsContent">
@@ -40,7 +40,7 @@
 
             <div class="analysis-column">
                 <div class="info-card highlight-card">
-                    <h3>Anlisis de la canción</h3>
+                    <h3>Análisis de la canción</h3>
                     <div class="start-row">
                         <div>
                             <span class="label">Tema Principal</span>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
 
             <div class="info-card">
                 <h3>Información detallada</h3>
@@ -77,6 +77,7 @@
                     <p id="brandsDisplay">--</p>
                 </div>
             </div>
+        </div>
 
         </div>
 
