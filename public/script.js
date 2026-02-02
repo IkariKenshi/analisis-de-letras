@@ -29,7 +29,6 @@ searchForm.addEventListener('submit', async (e) => {
 
         const data = await response.json();
 
-        console.log(data);
 
         /* __________________________________________________________________ Columna de la izquierda letras */
         document.getElementById('songTitleDisplay').textContent = `${data.artist} - ${data.song}`;
